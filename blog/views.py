@@ -7,4 +7,9 @@ from django.shortcuts import render
 
 
 def createPost(request):
-    return render(request, 'createpost.html', {})
+    if request.method == 'GET':
+        return render(request, 'createpost.html', {})
+    elif request.method == 'POST':
+        # save to database
+        print(request.POST)
+        return render(request, 'createpost.html', {})
